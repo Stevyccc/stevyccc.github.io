@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useRef } from 'react';
+import TabsWithAnimation from './components/TabsWithAnimation';
 
-function App() {
+import AnimatedBox from './components/AnimatedBox';
+// import './App.css';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div 
+    style={{fontFamily: 'Arial, sans-serif',
+            padding: '20px'}}>
+    <h1>Zehua Cheng's Personal Website</h1>
+    <TabsWithAnimation />
     </div>
-  );
+  )
 }
 
 export default App;
