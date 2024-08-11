@@ -1,0 +1,136 @@
+/* Home.css */
+.portfolio-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #bef264;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .company-name {
+    font-weight: bold;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #4b5563;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+  
+  .text-content {
+    max-width: 50%;
+  }
+  
+  .name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .image-container {
+    width: 40%;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  
+  .profile-image-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: black;
+  }
+  
+  .profile-image-inner {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background-color: #bfdbfe;
+  }
+  
+  .footer {
+    background-color: #bfdbfe;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .language-button {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .language-button.active {
+    background-color: #1f2937;
+    color: white;
+  }
+  
+  .language-button.inactive {
+    background-color: white;
+    color: #1f2937;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      padding: 2rem;
+    }
+  
+    .text-content, .image-container {
+      max-width: 100%;
+      width: 100%;
+    }
+  
+    .image-container {
+      margin-top: 2rem;
+    }
+  }
