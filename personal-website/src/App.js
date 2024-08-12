@@ -5,12 +5,13 @@ import Home from './components/Home';
 // import Research from './components/Research';
 // import Projects from './components/Projects';
 // import Photography from './components/Photography';
+
 // import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      {/* <div className="App"> */}
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} /> */}
@@ -18,7 +19,7 @@ function App() {
           {/* <Route path="/projects" element={<Projects />} /> */}
           {/* <Route path="/photography" element={<Photography />} /> */}
         </Routes>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }
