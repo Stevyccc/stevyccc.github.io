@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Instagram, Linkedin, Mail } from 'lucide-react';
 import '../Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const videoRef = useRef(null);
 
   const handleLogoClick = () => {
     navigate('/');
   };
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.75; // Slows down the video to 75% speed
+    }
+  }, []);
+
   return (
     <div className="portfolio-container">
       <div className="fullscreen-page">
         <div className="fullscreen-background">
-          {/* You can add your video background here later */}
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="background-video"
+          >
+            <source src={`${process.env.PUBLIC_URL}/AdobeStock_807810113_Video_HD_Preview.mov`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <header className="header">
           <div className="logo-container">
