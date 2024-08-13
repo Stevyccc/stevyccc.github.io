@@ -12,31 +12,43 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
   }
   
   body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
   }
   
   /* Layout Containers */
   .portfolio-container {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    background-color: white;
   }
   
-  .original-content {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  .fullscreen-page {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .fullscreen-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* You can add background styles here, e.g.: */
+    /* background-color: #f0f0f0; */
+    /* or for a video background: */
+    /* background: url('path-to-your-video') no-repeat center center fixed; */
+    /* background-size: cover; */
   }
   
   /* Header Styles */
   .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,15 +120,15 @@
   
   /* Main Content Styles */
   .main-content {
-    flex-grow: 1;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 0 4rem;
   }
   
   .text-content {
-    max-width: 50%;
+    max-width: 600px;
   }
   
   .name {
@@ -156,131 +168,79 @@
     color: #1f2937;
   }
   
-  /* Profile Image Styles */
-  .image-container {
-    width: 40%;
-    aspect-ratio: 1;
-    position: relative;
-  }
-  
-  .profile-image-outer {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background-color: black;
-  }
-  
-  .profile-image-inner {
-    position: absolute;
-    inset: 4px;
-    border-radius: 50%;
-    background-color: #bfdbfe;
-  }
-  
   /* Projects Showcase */
   .projects-showcase {
-    padding: 2rem;
-    background-color: #f3f4f6;
+    padding: 4rem 2rem;
+    background-color: rgba(243, 244, 246, 0.9);
   }
   
   .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .project-card {
     background-color: white;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   /* Footer Styles */
   .footer {
-    background-color: #bfdbfe;
-    transition: all 0.3s ease-in-out;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    background-color: rgba(191, 219, 254, 0.9);
+    padding: 0.5rem 0;
   }
   
   .footer-content {
-    padding: 0.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
   }
   
-  .language-buttons {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .language-button {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .language-button.active {
-    background-color: #1f2937;
-    color: white;
-  }
-  
-  .language-button.inactive {
-    background-color: white;
-    color: #1f2937;
-  }  
-  
   .footer-nav {
-    display: none;
-    margin-right: auto;
-  }
-  
-  .footer-nav.visible {
     display: flex;
     gap: 1.5rem;
   }
   
-  .footer.expanded {
-    height: auto;
+  .copyright {
+    font-size: 0.75rem;
+    color: #4b5563;
   }
   
-  .footer.expanded .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .footer.expanded .footer-nav {
-    display: flex;
-    gap: 1.5rem;
-  }
-
   /* Media Queries */
   @media (max-width: 768px) {
-    .footer-content {
+    .header {
       flex-direction: column;
       align-items: flex-start;
+      padding: 1rem;
+    }
+  
+    .nav {
+      margin-top: 1rem;
+    }
+  
+    .main-content {
+      padding: 0 1rem;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
     }
   
     .footer-nav {
-      margin-top: 1rem;
-      width: 100%;
-    }
-  
-    .footer.expanded .footer-content {
-      flex-direction: column;
-    }
-  
-    .language-buttons {
-      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
-  
-  /*  not rendering footer animation */

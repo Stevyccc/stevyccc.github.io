@@ -1,33 +1,21 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Instagram, Linkedin, Mail } from 'lucide-react';
 import '../Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [isFooterExpanded, setIsFooterExpanded] = useState(false);
-  const footerRef = useRef(null);
 
   const handleLogoClick = () => {
     navigate('/');
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      setIsFooterExpanded(documentHeight - (scrollTop + windowHeight) < 10); // 10px threshold
-    };
-  
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="portfolio-container">
-      <div className="original-content">
+      <div className="fullscreen-page">
+        <div className="fullscreen-background">
+          {/* You can add your video background here later */}
+        </div>
         <header className="header">
           <div className="logo-container">
             <button onClick={handleLogoClick} className="logo-button">
@@ -52,14 +40,15 @@ const Home = () => {
             <p className="subtitle">(Or, Steve)</p>
             <p className="description">I'm a mathematical finance student based in NYC, US.</p>
             <div className="social-icons">
-              <Instagram size={24} />
-              <Linkedin size={24} />
-              <Mail size={24} />
-            </div>
-          </div>
-          <div className="image-container">
-            <div className="profile-image-outer">
-              <div className="profile-image-inner"></div>
+              <a href="https://instagram.com/stevy_c_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram size={24} />
+              </a>
+              <a href="https://linkedin.com/in/zehuacheng" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={24} />
+              </a>
+              <a href="mailto:zc2694@columbia.edu" aria-label="Email">
+                <Mail size={24} />
+              </a>
             </div>
           </div>
         </main>
@@ -75,23 +64,21 @@ const Home = () => {
             <h3>Research Paper</h3>
             <p>High level ideas: brief overview of my recent research</p>
           </div>
-          {/* Add more project cards as needed */}
         </div>
       </section>
-      <footer ref={footerRef} className={`footer ${isFooterExpanded ? 'expanded' : ''}`}>
+      <footer className="footer">
         <div className="footer-content">
-            <nav className={`footer-nav ${isFooterExpanded ? 'visible' : ''}`}>
+          <nav className="footer-nav">
             <Link to="/about" className="nav-link">About</Link>
             <Link to="/research" className="nav-link">Research</Link>
             <Link to="/projects" className="nav-link">Projects</Link>
             <Link to="/photography" className="nav-link">Photography</Link>
-            </nav>
-            <div className="language-buttons">
-            <button className="language-button active">EN</button>
-            <button className="language-button inactive">中</button>
-            </div>
+          </nav>
+          <div className="copyright">
+            © {new Date().getFullYear()} Zehua Cheng. All rights reserved.
+          </div>
         </div>
-    </footer>
+      </footer>
     </div>
   );
 };
