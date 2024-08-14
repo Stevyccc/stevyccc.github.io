@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
+import FrontAnimation from './FrontAnimation';
 import '../Home.css';
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
   return (
     <div className="portfolio-container">
       <div className="fullscreen-page">
-        <div className="fullscreen-background">
+        {/* <div className="fullscreen-background">
           <video
             ref={videoRef}
             autoPlay
@@ -32,7 +33,7 @@ const Home = () => {
             <source src={`${process.env.PUBLIC_URL}/AdobeStock_807810113_Video_HD_Preview.mov`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </div>
+        </div> */}
         <header className="header">
           <div className="logo-container">
             <button onClick={handleLogoClick} className="logo-button">
@@ -57,6 +58,9 @@ const Home = () => {
             <p className="subtitle">(Or, Steve)</p>
             <p className="description">I'm a mathematical finance student based in NYC, US.</p>
             <div className="social-icons">
+            <a href="https://github.com/Stevyccc" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                <Github size={24} />
+              </a>
               <a href="https://instagram.com/stevy_c_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram size={24} />
               </a>
@@ -68,6 +72,7 @@ const Home = () => {
               </a>
             </div>
           </div>
+          <FrontAnimation></FrontAnimation>
         </main>
       </div>
       <section className="projects-showcase">
