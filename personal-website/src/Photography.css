@@ -1,0 +1,51 @@
+/* General Styles */
+.photography-page-container {
+    font-family: Arial, sans-serif;
+    /* padding: 2rem; */
+    /* max-width: 1200px; Set a maximum width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding-top: 6rem; /* Ensure content is not hidden under the fixed header */
+  }
+  
+  /* Photography Content Styles */
+  .photography-content {
+    text-align: center; /* Center align the content */
+  }
+  
+  .photography-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  /* Photo Grid */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 1rem;
+  }
+  
+  .photo-item {
+    position: relative;
+  }
+  
+  .photo-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slightly round the corners of the photos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .photo-img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  

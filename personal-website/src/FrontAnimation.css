@@ -35,13 +35,13 @@
 }
 
 .card > .row {
-    color: white;
+    color: #B9D9EB;
     display: flex;
     flex-wrap: nowrap;
 }
 
 .card > .row > .icon {
-    background: #223;
+    background: #002FA7; 
     color: white;
     border-radius: 50%;
     height: 50px;
@@ -61,12 +61,12 @@
     width: 520px;
     opacity: 0;
     transform: translateY(30px);
-    transition-delay: .3s;
+    transition-delay: .0s;
     transform: all .3s ease;
 }
 
 .description p {
-    color: #b0b0ba;
+    color: white;
     padding-top: 5px;
 }
 
