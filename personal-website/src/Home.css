@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* background-color: white; */ /* toggle this to show video or not!!! */
   }
   
   .fullscreen-page {
@@ -53,7 +54,7 @@
     width: auto;
     height: auto;
     transform: translateX(-50%) translateY(-50%);
-    filter: saturate(50%);
+    filter: saturate(50%); /* Reduces saturation to 50% */
   }
   
   /* Header Styles */
@@ -62,6 +63,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    /* position: relative; */
     position: fixed;
     top: 0;
     width: 100%;
@@ -136,16 +138,16 @@
   /* Main Content Styles */
   .main-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 2fr; /* Set a 1:2 ratio for the grid layout */
+    gap: 1rem; /* Adds space between the grid columns */
     align-items: center;
-    padding: 15rem 2rem;
+    padding: 15rem 2rem; /* Adjust padding to suit the new grid layout */
     position: relative;
     z-index: 1;
   }
   
   .text-content {
-    max-width: 100%;
+    max-width: 100%; /* Ensure it uses the allocated space */
     background-color: rgba(255, 255, 255, 0.7);
     padding: 2rem;
     border-radius: 10px;
@@ -206,17 +208,20 @@
     background-color: white;
     padding: 1rem;
     border-radius: 0.5rem;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     transition: opacity 0.5s, transform 0.5s;
   }
   
   /* Footer Styles */
   .footer {
+    /* background-color: rgba(185, 217, 235, 1.0); */
     padding: 1rem 0;
   }
   
   .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    /* padding: 1rem; */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -232,120 +237,11 @@
   .copyright {
     font-size: 0.75rem;
     color: #4b5563;
-    align-self: flex-end;
-    margin-top: auto;
+    align-self: flex-end; /* Aligns the copyright to the right */
+    margin-top: auto; /* Pushes it to the bottom of the footer */
   }
   
-  /* Featured Content Styles */
-  .featured-content,
-  .additional-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding-bottom: 3rem;
-  }
-  
-  .featured-section {
-    margin-bottom: 3rem;
-  }
-  
-  .featured-section h2 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: #0f172a;
-  }
-  
-  /* Articles List */
-  .articles-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .article-card {
-    display: flex;
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1rem;
-    gap: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .article-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .article-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .article-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #0f172a;
-  }
-  
-  .article-description {
-    font-size: 1rem;
-    color: #4b5563;
-    margin-bottom: 1rem;
-  }
-  
-  .read-more {
-    font-size: 0.875rem;
-    color: #1d4ed8;
-    text-decoration: none;
-  }
-  
-  .read-more:hover {
-    text-decoration: underline;
-  }
-  
-  /* Placeholder Table */
-  .placeholder-table {
-    background-color: #f9fafb;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-  }
-  
-  .placeholder-table h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #111827;
-  }
-  
-  .placeholder-table table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .placeholder-table td {
-    padding: 0.5rem;
-    border-bottom: 1px solid #d1d5db;
-    color: #4b5563;
-    font-size: 1rem;
-  }
-  
-  .placeholder-table td:first-child {
-    font-weight: bold;
-  }
-  
-  /* Responsive Adjustments */
+  /* Media Queries */
   @media (max-width: 768px) {
     .header {
       flex-direction: column;
@@ -357,24 +253,13 @@
     }
   
     .main-content {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 2rem 1rem;
-    }
+        grid-template-columns: 1fr; /* Stacks the content vertically on smaller screens */
+        gap: 1rem;
+        padding: 2rem 1rem;
+      }
   
-    .featured-content,
-    .additional-content {
-      grid-template-columns: 1fr;
-    }
-  
-    .article-card {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .article-image {
-      width: 100%;
-      height: auto;
+    .text-content {
+    max-width: 100%;
     }
   
     .footer-content {
@@ -388,9 +273,6 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-  
-    .placeholder-table {
-      margin-top: 2rem;
-    }
   }
+
   
