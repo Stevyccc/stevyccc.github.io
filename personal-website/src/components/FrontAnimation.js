@@ -6,23 +6,23 @@ function FrontAnimation() {
     const slides = [
         {
             id: "c1",
-            heading: "Winter Wonderland",
-            description: "Winter has as much to offer",
+            heading: "Cracking the Code",
+            description: "Finding the signals buried in the noise — one algorithm at a time.",
         },
         {
             id: "c2",
-            heading: "Winter Wonderland",
-            description: "Winter has as much to offer",
+            heading: "Tech Meets Creativity",
+            description: "Curiosity meets computation in the search for hidden trends.",
         },
         {
             id: "c3",
-            heading: "Winter Wonderland",
-            description: "Winter has as much to offer",
+            heading: "Where Numbers Come Alive",
+            description: "Exploring how math and data shape the real world in unexpected ways.",
         },
         {
             id: "c4",
-            heading: "Winter Wonderland",
-            description: "Winter has as much to offer",
+            heading: "Shaping Tomorrow",
+            description: "Charting the course toward a future driven by curiosity and passion.",
         },
     ];
 

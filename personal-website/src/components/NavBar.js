@@ -12,7 +12,7 @@ const NavBar = () => {
             alt="Home"
             className="logo-image"
           />
-          <span className="company-name">Zehua Cheng</span>
+          <span className="company-name">Home</span>
         </Link>
       </div>
       <nav className="nav">

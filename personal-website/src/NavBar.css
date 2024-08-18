@@ -3,13 +3,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem; /* Adjusted padding for a slightly thinner navbar */
+  padding: 0.5rem 2rem;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+  left: 50%; /* Center the header */
+  transform: translateX(-50%); /* Ensure the header stays centered */
+}
+
+/* Inner container to handle centering */
+.nav-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-container {
@@ -20,8 +32,8 @@
 .logo-link {
   display: flex;
   align-items: center;
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Keep the text color */
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-image {
@@ -33,5 +45,5 @@
 
 .company-name {
   font-weight: bold;
-  margin-left: 0.5rem; /* Space between the image and text */
+  margin-left: 0.5rem;
 }

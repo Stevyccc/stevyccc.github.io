@@ -1,39 +1,58 @@
-/* Footer Styles */
+/* Footer Container */
 .footer {
-    padding: 1rem 0;
-    /* background-color: rgba(185, 217, 235, 1.0); */
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
-  
-  .nav-link {
-    color: #4b5563;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: #1f2937;
-  }
-  
-  .copyright {
-    font-size: 0.75rem;
-    color: #4b5563;
-    align-self: flex-end;
-    margin-top: auto;
-  }
-  
+  padding: 1rem 0;
+  margin-top: auto; /* Ensure the footer stays at the bottom */
+  flex-shrink: 0; /* Prevent the footer from shrinking when the content is short */
+}
+
+/* Footer Content */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.nav-link {
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1f2937;
+}
+
+/* Copyright */
+.copyright {
+  font-size: 0.75rem;
+  color: #4b5563;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+/* Ensure Footer Stays at Bottom When Content is Short */
+body, html {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 2rem; /* Add some space between main content and footer */
+}

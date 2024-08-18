@@ -1,20 +1,44 @@
-import React from 'react';
-import NavBar from './NavBar';
-import Footer from './Footer';
-import '../Photography.css'; // Specific styles for the photography page
+import React, { useState } from 'react';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import '../Photography.css'; 
+
+// Dynamic import for images and thumbnails
+const images = require.context('../pictures/images', false, /\.(jpg|jpeg|png)$/);
+const thumbnails = require.context('../pictures/thumbnails', false, /\.(jpg|jpeg|png)$/);
 
 const Photography = () => {
-  const photos = [
-    { src: `${process.env.PUBLIC_URL}/c1.jpg`, alt: 'Photo 1' },
-    { src: `${process.env.PUBLIC_URL}/c2.jpg`, alt: 'Photo 2' },
-    { src: `${process.env.PUBLIC_URL}/c3.jpg`, alt: 'Photo 3' },
-    { src: `${process.env.PUBLIC_URL}/c4.jpg`, alt: 'Photo 4' },
-    // Add more photos as needed
-  ];
+  const photos = images.keys().map((key) => ({
+    src: images(key),
+    thumbnail: thumbnails(key),
+    alt: `Photo ${key.replace('./', '').replace(/\.(jpg|jpeg|png)$/, '')}`,
+  }));
+
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
+
+  const handleImageClick = (index) => {
+    setSelectedPhotoIndex(index);
+  };
+
+  const closeModal = () => {
+    setSelectedPhotoIndex(null);
+  };
+
+  const showNextPhoto = (e) => {
+    e.stopPropagation(); // Prevent modal click from closing it
+    setSelectedPhotoIndex((prevIndex) => (prevIndex + 1) % photos.length);
+  };
+
+  const showPreviousPhoto = (e) => {
+    e.stopPropagation(); // Prevent modal click from closing it
+    setSelectedPhotoIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+  };
+
+  const selectedPhoto = photos[selectedPhotoIndex];
 
   return (
     <div className="photography-page-container">
-      <NavBar /> {/* Reusable NavBar component */}
+      <NavBar />
       <main className="photography-content">
         <h1>My Photography</h1>
         <p className="intro">
@@ -22,13 +46,29 @@ const Photography = () => {
         </p>
         <div className="photo-grid">
           {photos.map((photo, index) => (
-            <div key={index} className="photo-item">
-              <img src={photo.src} alt={photo.alt} className="photo-img" />
+            <div key={index} className="photo-item" onClick={() => handleImageClick(index)}>
+              <div className="photo-hover-container">
+                <img
+                  src={photo.thumbnail}
+                  alt={photo.alt}
+                  className="photo-img"
+                  loading="lazy" // Lazy loading
+                />
+              </div>
             </div>
           ))}
         </div>
+        {selectedPhotoIndex !== null && (
+          <div className="modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="prev-btn" onClick={showPreviousPhoto}>&#10094;</button>
+              <img src={selectedPhoto.src} alt={selectedPhoto.alt} className="modal-img" />
+              <button className="next-btn" onClick={showNextPhoto}>&#10095;</button>
+            </div>
+          </div>
+        )}
       </main>
-      <Footer /> {/* Reusable Footer component */}
+      <Footer />
     </div>
   );
 };

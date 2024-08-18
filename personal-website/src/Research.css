@@ -1,69 +1,172 @@
 /* General Styles */
 .research-page-container {
-    font-family: Arial, sans-serif;
-    /* padding: 2rem; */
-    /* max-width: 1200px; Set a maximum width for the content */
-    margin: 0 auto; /* Center the content horizontally */
-    padding-top: 6rem; /* Ensure content is not hidden under the fixed header */
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding-top: 10rem;
+  max-width: 1200px;
 }
-  
+
 /* Research Content Styles */
 .research-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left; /* Align text to the left */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
 }
 
-.research-content h1 {
-    font-size: 2.5rem;
+.left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-column h1 {
+    font-size: 2.5rem; /* Increased font size */
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: #0f172a;
     text-align: center;
+    width: 100%;
+  }
+
+.research-section {
+  margin-bottom: 3rem; /* Increased margin for better separation */
 }
 
-.disclaimer {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 2rem;
+.research-section h2 {
+  font-size: 1.75rem; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Added margin for better separation */
+  color: #0f172a;
+  text-align: left;
 }
 
+/* Article List and Card Styles */
 .articles-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-}
-
-/* Article Card Styles */
-.article-card {
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 2rem;
-}
-
-.article-date {
+    gap: 1.5rem;
+  }
+  
+  .article-card {
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px; /* Increased border-radius for more rounded corners */
+    padding: 1rem;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
+  }
+  
+  .article-card a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    width: 100%; /* Ensures the link takes up the full box */
+    flex-direction: row; /* Ensures the layout stays consistent */
+  }
+  
+  .article-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px; /* Also rounding the image corners */
+  }
+  
+  .article-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article-date {
     font-size: 0.875rem;
     color: #6b7280;
     margin-bottom: 0.5rem;
-}
-
-.article-title {
-    font-size: 1.25rem;
+  }
+  
+  .article-title {
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-}
-
-.article-description {
+    color: #0f172a;
+    text-align: left;
+  }
+  
+  .article-description {
     font-size: 1rem;
     color: #4b5563;
     margin-bottom: 1rem;
-}
-
-.read-more {
+  }
+  
+  .read-more {
     font-size: 0.875rem;
-    color: #3b82f6;
+    color: #1d4ed8;
     text-decoration: none;
-    transition: color 0.3s ease;
+  }  
+
+/* Search Bar Styles */
+.search-bar {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.read-more:hover {
-    color: #002FA7;
+/* Research Guide (Table of Contents) Styles */
+.research-guide {
+  position: sticky;
+  top: 6rem; /* Adjusted to avoid navbar overlap */
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.research-guide h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.research-guide ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.research-guide li {
+  margin-bottom: 0.75rem;
+}
+
+.research-guide a {
+  text-decoration: none;
+  color: #3b82f6;
+}
+
+.research-guide a:hover {
+  color: #1d4ed8;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .research-content {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .research-guide {
+    position: relative; /* Disable sticky on small screens */
+  }
 }
